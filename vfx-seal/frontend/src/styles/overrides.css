@@ -1,0 +1,6 @@
+/* ========== SAFE CSS OVERRIDES ========== */
+/* Ensure ONLY input/textarea/select behave like inputs */
+html, body, #root { cursor: default; }
+input, textarea, select { cursor: text; }
+*:not(input):not(textarea):not(select) { caret-color: transparent; }
+

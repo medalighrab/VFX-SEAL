@@ -1,0 +1,99 @@
+/* ============================================
+   VFX Seal �?� Premium Design System
+   ============================================ */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  /* Background */
+  --bg-primary: #0b0f17;
+  --bg-secondary: #141c2a;
+  --bg-card: #1b2433;
+  --bg-card-hover: #232f42;
+  --bg-input: #121a28;
+  --bg-overlay: rgba(11, 15, 23, 0.86);
+
+  /* Surface / Glass */
+  --glass-bg: rgba(24, 33, 47, 0.72);
+  --glass-border: rgba(127, 147, 174, 0.22);
+  --glass-border-hover: rgba(167, 186, 209, 0.36);
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #aab8cc;
+  --text-muted: #8093ad;
+  --text-accent: #f4d38a;
+
+  /* Accent / Brand - Updated to match spec */
+  --accent: #f4d38a;
+  --accent-hover: #ddb162;
+  --accent-muted: rgba(244, 211, 138, 0.16);
+  --accent-glow: rgba(221, 177, 98, 0.26);
+  --accent-blue: #2f435b;
+
+  /* Secondary Structure (30%) */
+  --secondary: #7f93ae;
+  --secondary-muted: rgba(127, 147, 174, 0.2);
+  --secondary-soft: rgba(127, 147, 174, 0.12);
+
+  /* Badge Colors */
+  --badge-gold: #FFD700;
+  --badge-gold-bg: rgba(255, 215, 0, 0.12);
+  --badge-silver: #C0C0C0;
+  --badge-silver-bg: rgba(192, 192, 192, 0.12);
+  --badge-bronze: #CD7F32;
+  --badge-bronze-bg: rgba(205, 127, 50, 0.12);
+  --badge-blue: #3B82F6;
+  --badge-blue-bg: rgba(59, 130, 246, 0.15);
+  --badge-none: #64748b;
+  --badge-none-bg: rgba(100, 116, 139, 0.12);
+
+  /* Status Colors */
+  --success: #22c55e;
+  --success-bg: rgba(34, 197, 94, 0.1);
+  --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --danger: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.1);
+  --info: #3b82f6;
+  --info-bg: rgba(59, 130, 246, 0.1);
+
+  /* Skill Colors */
+  --skill-validated: #22c55e;
+  --skill-validated-bg: rgba(34, 197, 94, 0.12);
+  --skill-unverified: #f59e0b;
+  --skill-unverified-bg: rgba(245, 158, 11, 0.12);
+  --skill-nonvalidated: #475569;
+  --skill-nonvalidated-bg: rgba(71, 85, 105, 0.15);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+  --shadow-premium: 0 10px 30px rgba(127, 147, 174, 0.22);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Font */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+

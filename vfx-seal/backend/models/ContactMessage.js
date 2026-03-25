@@ -1,45 +1,107 @@
-const mongoose = require('mongoose');
-
-const contactMessageSchema = new mongoose.Schema({
+module.exports = (sequelize, DataTypes) => {
+  const ContactMessage = sequelize.define("ContactMessage", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    direction: {
+      type: DataTypes.ENUM("INBOUND", "OUTBOUND"),
+      allowNull: false,
+      defaultValue: "INBOUND",
+    },
+    senderType: {
+      type: DataTypes.ENUM("STUDIO", "ADMIN"),
+      allowNull: false,
+      defaultValue: "STUDIO",
+    },
+    senderId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    senderName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    senderEmail: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    senderCompany: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
     studioId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        default: null,
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     studioName: {
-        type: String,
-        required: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     studioEmail: {
-        type: String,
-        required: true,
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    recipientId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    recipientName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    recipientEmail: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
+    },
+    recipientCompany: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
     },
     subject: {
-        type: String,
-        required: true,
-        trim: true,
-        maxlength: 200,
+      type: DataTypes.STRING(200),
+      allowNull: false,
     },
     message: {
-        type: String,
-        required: true,
-        trim: true,
-        maxlength: 5000,
+      type: DataTypes.STRING(5000),
+      allowNull: false,
     },
     status: {
-        type: String,
-        enum: ['NEW', 'REPLIED', 'CLOSED'],
-        default: 'NEW',
+      type: DataTypes.ENUM("NEW", "REPLIED", "CLOSED"),
+      allowNull: false,
+      defaultValue: "NEW",
     },
     adminReply: {
-        type: String,
-        default: '',
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "",
     },
     repliedAt: {
-        type: Date,
+      type: DataTypes.DATE,
+      allowNull: true,
     },
-}, {
-    timestamps: true,
-});
+    adminReadAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    studioReadAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+  });
 
-module.exports = mongoose.model('ContactMessage', contactMessageSchema);
+  ContactMessage.prototype.toJSON = function toJSON() {
+    const data = { ...this.get() };
+    data._id = String(data.id);
+    return data;
+  };
+
+  return ContactMessage;
+};

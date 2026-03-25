@@ -1,0 +1,109 @@
+/* ============================================
+   NEW Ù?¤ Stars / Rating
+   ============================================ */
+.stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.stars .star {
+  color: var(--glass-border-hover);
+  transition: all var(--transition-fast);
+}
+
+.stars .star.filled {
+  color: #f59e0b;
+}
+
+.stars-sm .star { font-size: 0.85rem; }
+.stars-md .star { font-size: 1.1rem; }
+.stars-lg .star { font-size: 1.6rem; }
+
+.stars-interactive .star {
+  cursor: pointer;
+  font-size: 1.8rem;
+  transition: all var(--transition-fast);
+}
+
+.stars-interactive .star:hover {
+  transform: scale(1.2);
+}
+
+/* ============================================
+   React Icons Compatibility
+   ============================================ */
+/* Badge Icons */
+.badge-icon {
+  vertical-align: middle;
+}
+
+.badge-icon.gold {
+  color: var(--badge-gold);
+}
+
+.badge-icon.silver {
+  color: var(--badge-silver);
+}
+
+.badge-icon.bronze {
+  color: var(--badge-bronze);
+}
+
+/* Empty state icon */
+.empty-state-icon svg {
+  color: var(--text-muted);
+}
+
+/* Notification bell */
+.notif-bell svg {
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.notif-bell:hover svg {
+  color: var(--text-primary);
+}
+
+/* Star rating consistency */
+.star svg {
+  display: block;
+}
+
+/* Button icons spacing */
+.btn svg {
+  flex-shrink: 0;
+}
+
+/* Tab icons */
+.tab-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Button icons */
+.button-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Admin buttons with consistent icon styling */
+.admin-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+

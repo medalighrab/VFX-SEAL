@@ -1,0 +1,334 @@
+/* ============================================
+   NEW Ù?¤ Admin Feedback Cards
+   ============================================ */
+.admin-feedback-list,
+.admin-messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.admin-messages-toolbar {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.admin-messages-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.admin-messages-list-pane {
+  max-height: 72vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.admin-message-detail-pane {
+  min-height: 320px;
+}
+
+.admin-feedback-card,
+.admin-message-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-fast);
+}
+
+.admin-message-selectable {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-message-selectable.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(246, 231, 192, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 231, 192, 0.06) 0%,
+    rgba(246, 231, 192, 0.02) 100%
+  );
+}
+
+.admin-feedback-card:hover,
+.admin-message-card:hover {
+  border-color: var(--glass-border-hover);
+}
+
+.admin-item-highlight {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 1px rgba(246, 231, 192, 0.35), 0 0 20px rgba(246, 231, 192, 0.15);
+}
+
+.admin-message-selectable:hover {
+  transform: translateY(-1px);
+}
+
+.admin-feedback-header,
+.admin-message-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.admin-feedback-studio,
+.admin-message-studio {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.admin-feedback-vendor {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-top: 2px;
+}
+
+.admin-feedback-date,
+.admin-message-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.admin-feedback-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+}
+
+.admin-feedback-message,
+.admin-message-body {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.admin-message-body-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.admin-feedback-note {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--danger-bg);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  color: var(--danger);
+  margin-bottom: var(--space-md);
+}
+
+.admin-feedback-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.admin-feedback-reject-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+  min-width: 200px;
+}
+
+.admin-message-email {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Flagged Feedback Admin Styles */
+.admin-feedback-flagged {
+  border-left: 4px solid var(--warning);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.admin-feedback-flag-info {
+  font-size: 0.75rem;
+  color: var(--warning);
+  margin-top: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--warning-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.status-badge.flagged {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Admin message actions */
+.admin-message-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-sm);
+}
+
+.admin-message-subject {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.admin-message-reply {
+  padding: var(--space-md);
+  background: var(--success-bg);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--success);
+}
+
+.admin-message-reply p {
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.admin-message-reply small {
+  display: block;
+  margin-top: var(--space-sm);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.admin-message-reply-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.compose-message-modal {
+  max-width: 720px;
+}
+
+.compose-recipient-list {
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.compose-recipient-select-all {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: var(--space-xs);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.compose-recipient-select-all:hover {
+  background: var(--bg-card-hover);
+  border-radius: var(--radius-sm);
+}
+
+.compose-recipient-select-all input {
+  margin-top: 0;
+}
+
+.compose-recipient-count {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.84rem;
+}
+
+.compose-recipient-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.compose-recipient-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.compose-recipient-item input {
+  margin-top: 3px;
+}
+
+@media (max-width: 1024px) {
+  .admin-messages-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-messages-list-pane {
+    max-height: 45vh;
+  }
+}
+
+/* Tab Badge */
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--danger);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-left: var(--space-xs);
+}
+
+/* Status badge additions */
+.status-badge.new {
+  background: var(--info-bg);
+  color: var(--info);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.status-badge.replied {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.status-badge.closed {
+  background: var(--badge-none-bg);
+  color: var(--badge-none);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+.status-badge.accepted {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.status-badge.completed {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+

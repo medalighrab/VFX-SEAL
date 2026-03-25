@@ -1,34 +1,64 @@
-const mongoose = require('mongoose');
+module.exports = (sequelize, DataTypes) => {
+  const Notification = sequelize.define(
+    "Notification",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      type: {
+        type: DataTypes.ENUM(
+          "CONTACT_REPLY",
+          "FEEDBACK_APPROVED",
+          "FEEDBACK_REJECTED",
+          "FEEDBACK_REMOVED",
+          "NEW_CONTACT",
+          "NEW_FEEDBACK",
+          "FLAGGED_FEEDBACK",
+          "AUDIT_REQUEST_UPDATE",
+          "VENDOR_VERIFICATION_UPDATE",
+          "SYSTEM",
+        ),
+        allowNull: false,
+      },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      message: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      read: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      relatedId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      link: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "",
+      },
+    },
+    {
+      indexes: [{ fields: ["userId"] }],
+    },
+  );
 
-const notificationSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-        index: true,
-    },
-    type: {
-        type: String,
-        enum: ['CONTACT_REPLY', 'FEEDBACK_APPROVED', 'FEEDBACK_REJECTED', 'NEW_CONTACT', 'NEW_FEEDBACK'],
-        required: true,
-    },
-    title: {
-        type: String,
-        required: true,
-    },
-    message: {
-        type: String,
-        required: true,
-    },
-    read: {
-        type: Boolean,
-        default: false,
-    },
-    relatedId: {
-        type: mongoose.Schema.Types.ObjectId,
-    },
-}, {
-    timestamps: true,
-});
+  Notification.prototype.toJSON = function toJSON() {
+    const data = { ...this.get() };
+    data._id = String(data.id);
+    return data;
+  };
 
-module.exports = mongoose.model('Notification', notificationSchema);
+  return Notification;
+};
